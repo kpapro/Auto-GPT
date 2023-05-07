@@ -6,7 +6,10 @@ services:
   auto-gpt:
     depends_on:
       - redis
-    build: ./
+    build:
+      context: ./
+      command: >
+        bash -c "cd UI && npm install && npm run build"
     env_file:
       - .env
     environment:

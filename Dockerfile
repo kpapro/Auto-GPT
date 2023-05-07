@@ -12,6 +12,10 @@ RUN apt-get update && apt-get install -y \
 # Install utilities
 RUN apt-get install -y curl jq wget git
 
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs
+
 # Set environment variables
 ENV PIP_NO_CACHE_DIR=yes \
     PYTHONUNBUFFERED=1 \
